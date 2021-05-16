@@ -6,6 +6,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const materialModules = [
   MatToolbarModule,
@@ -13,6 +17,10 @@ const materialModules = [
   MatButtonModule,
   MatTableModule,
   MatCheckboxModule,
+  FormsModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatDialogModule,
 ];
 
 @NgModule({

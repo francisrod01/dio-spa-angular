@@ -9,12 +9,14 @@ import { InMemoryDataService } from './in-memory-data.service';
 import { AppMaterialModule } from './app-material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DialogUserComponent } from './dialog-user/dialog-user.component';
 import { HomeComponent } from './home/home.component';
 import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    DialogUserComponent,
     HomeComponent,
     MessagesComponent
   ],
