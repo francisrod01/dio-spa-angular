@@ -1,4 +1,8 @@
-# SpaAngular
+# dio-spa-angular
+
+A SPA built using Angular based on **Digital Innovation One** classes.
+
+Author: [Francis Rodrigues](https://github.com/francisrod01)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.0.
 
