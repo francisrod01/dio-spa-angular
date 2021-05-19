@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { from, Observable } from 'rxjs';
+import { map, mergeMap, toArray } from 'rxjs/operators';
 
 import { DialogUserComponent } from '../dialog-user/dialog-user.component';
 
@@ -31,14 +31,28 @@ export class HomeComponent implements OnInit {
   }
 
   openEdit(elem: any): void {
-    console.log('[DEBUG] edit elem: ', elem);
     const dialogRef = this.dialog.open(DialogUserComponent, {
       width: '250px',
       data: {...elem},
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('[DEBUG] dialog closed: ', result);
+    dialogRef.afterClosed().subscribe((result: User) => {
+      this.users$ = this.users$.pipe(
+        mergeMap(data =>
+          from(data).pipe(
+            map(item => {
+              if (item.id === result.id) {
+                const newItem: User = result;
+
+                return {...item, ...newItem};
+              }
+
+              return item;
+            }),
+            toArray()
+          )
+        ),
+      );
     });
   }
 }
